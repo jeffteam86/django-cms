@@ -20,8 +20,12 @@ RUN mkdir -p /myproject
 
 RUN cd myproject
 
-RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["*"]/' /myproject/mysite/settings.py
+RUN djangocms -f -s -p . mysite
 
-RUN python manage.py migrate
+RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["$myip"]/' /myproject/mysite/settings.py
+
+ENTRYPOINT ["./run_app.sh"]
+
+python manage.py migrate
 
 EXPOSE 80
