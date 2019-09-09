@@ -1,4 +1,4 @@
-From: ubuntu:latest
+From ubuntu:latest
 
 build_steps:
 
@@ -27,3 +27,5 @@ RUN djangocms -f -s -p . mysite
 RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["*"]/' /myproject/mysite/settings.py
 
 RUN python manage.py migrate
+
+EXPOSE 80
