@@ -22,6 +22,6 @@ RUN cd myproject
 
 RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["*"]/' /myproject/mysite/settings.py
 
-RUNpython manage.py migrate
+RUN python manage.py migrate
 
 EXPOSE 80
