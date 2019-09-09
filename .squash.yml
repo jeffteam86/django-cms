@@ -15,6 +15,6 @@ locale-gen
  - mkdir myproject
  - cd myproject
  - djangocms -f -s -p . mysite
- - sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["0.0.0.0"]/' /myproject/mysite/settings.py
+ - sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["$myip"]/' /myproject/mysite/settings.py
  - python manage.py migrate
  launch_steps: python manage.py runserver 0.0.0.0:80
