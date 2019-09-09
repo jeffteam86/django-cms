@@ -26,6 +26,6 @@ RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["$myip"]/' /myproject/mysite/s
 
 ENTRYPOINT ["./run_app.sh"]
 
-python manage.py migrate
+CMD python manage.py migrate
 
 EXPOSE 80
