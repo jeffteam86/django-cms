@@ -1,7 +1,5 @@
 From ubuntu:latest
 
-build_steps:
-
 RUN apt-get update && apt-get install -y python python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
 
 RUN apt-get install -y locales
