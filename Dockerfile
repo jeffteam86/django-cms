@@ -1,4 +1,6 @@
-From ubuntu:latest
+FROM python:3
+ENV PYTHONUNBUFFERED 1
+#From ubuntu:latest
 
 RUN apt-get update && apt-get install -y python python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
 
