@@ -20,7 +20,7 @@ RUN mkdir -p /myproject1
 
 RUN cd myproject1
 
-RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings.py
+RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings1.py
 
 ENTRYPOINT ["./run_app.sh"]
 
