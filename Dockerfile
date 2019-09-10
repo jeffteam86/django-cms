@@ -16,9 +16,9 @@ RUN pip install setuptools pip --upgrade --force-reinstall
 
 RUN pip install djangocms-installer
 
-RUN mkdir -p /myproject
+RUN mkdir -p /myproject1
 
-RUN cd myproject
+RUN cd myproject1
 
 RUN djangocms -f -s -p . mysite
 
