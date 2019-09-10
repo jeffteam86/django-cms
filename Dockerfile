@@ -20,7 +20,7 @@ RUN mkdir -p /myproject1
 
 RUN cd myproject1
 
-RUN djangocms -f -s -p . mysite
+RUN django-admin startproject mysite
 
 RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings.py
 
