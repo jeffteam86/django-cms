@@ -20,8 +20,6 @@ RUN mkdir -p /myproject1
 
 RUN cd myproject1
 
-RUN django-admin startproject mysite
-
 RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings.py
 
 ENTRYPOINT ["./run_app.sh"]
