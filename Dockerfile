@@ -18,13 +18,13 @@ RUN pip install setuptools pip --upgrade --force-reinstall
 
 RUN pip install djangocms-installer
 
-RUN mkdir -p /myproject1
+RUN mkdir -p /myproject
 
-RUN cd myproject1
+RUN cd /myproject
 
-RUN djangocms -f -s -p . mysite1
+RUN djangocms -f -s -p . mysite
 
-RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject1/mysite1/settings.py
+RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings.py
 
 ENTRYPOINT ["./run_app.sh"]
 
