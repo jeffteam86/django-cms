@@ -22,7 +22,7 @@ RUN cd myproject1
 
 RUN djangocms -f -s -p . mysite
 
-RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ["$myip"]/' /myproject/mysite/settings.py
+RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings.py
 
 ENTRYPOINT ["./run_app.sh"]
 
