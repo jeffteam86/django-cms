@@ -172,7 +172,7 @@ if __name__ == '__main__':
         STATIC_ROOT=app_manage.TempDir(),
         CMS_MEDIA_ROOT=app_manage.TempDir(),
         CMS_MEDIA_URL='/cms-media/',
-        MEDIA_URL='/media/',
+        MEDIA_URL='/mediaurl/',
         STATIC_URL='/static/',
         ADMIN_MEDIA_PREFIX='/static/admin/',
         EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend',
