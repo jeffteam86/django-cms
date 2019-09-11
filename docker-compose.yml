@@ -1,0 +1,11 @@
+version: "3"
+services:
+  ubuntu:
+    build: .
+    image: ubuntu:squash
+    container_name: django-cms
+    restart: always
+    working_dir: /myproject
+    command: "python manage.py runserver 0.0.0.0:80"
+    ports:
+      - 80:80
