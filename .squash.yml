@@ -1,7 +1,7 @@
 deployments:
   default:
         filename:
-          ./Dockerfile
+          ./docker-compose.yml
         vm_size:
           1GB
         port_forwarding:
