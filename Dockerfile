@@ -1,6 +1,8 @@
 From ubuntu:latest
 
-RUN apt-get update && apt-get install -y python python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
+RUN apt-get update 
+
+RUN apt-get install -y python python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
 
 RUN apt-get install -y locales
 
@@ -16,16 +18,24 @@ RUN pip install setuptools pip --upgrade --force-reinstall
 
 RUN pip install djangocms-installer
 
+RUN apt-get install dnsutils -y
+
+#RUN export myip=$(dig +short myip.opendns.com @resolver1.opendns.com) 
+
 RUN mkdir -p /myproject
 
-RUN cd /myproject
+WORKDIR /myproject
 
 RUN djangocms -f -s -p . mysite
 
-RUN sed -i -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/' /myproject/mysite/settings.py
+RUN ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
-ENTRYPOINT ["./run_app.sh"]
+RUN sed -i  -e 's/ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['$ip']/' /myproject/mysite/settings.py
+
+#ENTRYPOINT ["./run_app.sh"]
 
 CMD python manage.py migrate
 
-EXPOSE 80
+CMD python manage.py runserver 0.0.0.0:80
+
+EXPOSE "80:80"
